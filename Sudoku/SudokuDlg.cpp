@@ -155,7 +155,7 @@ HCURSOR CSudokuDlg::OnQueryDragIcon()
 void CSudokuDlg::GridCtrlInit()
 {
 	m_pGrid.SetEditable(true);
-	//m_pGrid.SetTextBkColor(RGB(0xFF, 0xFF, 0xE0));//黄色背景
+	//m_pGrid.SetTextBkColor(RGB(0xFF, 0xFF, 0x00));//黄色背景
 	m_pGrid.SetRowCount(9); //初始为9行
 	m_pGrid.SetColumnCount(9); //初始化为9列
 
@@ -163,11 +163,33 @@ void CSudokuDlg::GridCtrlInit()
 	{
 		for (int column=0; column < mc_lineAndColumn; column++)
 		{
-			GV_ITEM Item; 
-			Item.crBkClr=(DWORD)2;
+			GV_ITEM Item ; 
+			Item.row = row;
+			Item.col = column;
+			Item.mask = GVIF_BKCLR;
+			if ((row < 3) && (column > 2 && column < 6))
+			{
+				Item.crBkClr = RGB(0x11,0xff,0x11);
+			}
+			else if ((3 == row || 4 == row || 5 == row) && (column < 3 || column > 5))
+			{
+				Item.crBkClr = RGB(0x11,0xff,0x11);
+			}
+			else if ( (row > 5) && ( column > 2 && column < 6))
+			{
+				Item.crBkClr = RGB(0x11,0xff,0x11);
+			}
+			else
+			{
+				Item.crBkClr = RGB(0xff,0xff,0xff);
+			}
+			
+			
+			 
 			m_pGrid.SetRowHeight(row,25);
 			m_pGrid.SetColumnWidth(column,25);
-			m_pGrid.SetItem(&Item); 
+			m_pGrid.SetItem(&Item);
+			
 		}
 	}
 

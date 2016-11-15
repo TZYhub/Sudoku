@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\GridCtrlHeader">
+      <UniqueIdentifier>{c08c87df-5181-412f-a10d-ca127e513163}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\MyHeader">
+      <UniqueIdentifier>{4b2e86b4-3496-4430-8a6d-4803b535f138}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\MySource">
+      <UniqueIdentifier>{05ab64df-15ea-4d4e-b7a7-1d89580b1c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\GridCtrlSource">
+      <UniqueIdentifier>{a14d3cd2-a0f7-4150-87ef-5e11e8f2b5ed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -24,73 +36,73 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sudoku.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SudokuDlg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="GridCtrl.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="CellRange.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\GridCtrlHeader</Filter>
     </ClInclude>
     <ClInclude Include="GridCell.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\GridCtrlHeader</Filter>
     </ClInclude>
     <ClInclude Include="GridCellBase.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\GridCtrlHeader</Filter>
     </ClInclude>
-    <ClInclude Include="TitleTip.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="GridCtrl.h">
+      <Filter>头文件\GridCtrlHeader</Filter>
     </ClInclude>
     <ClInclude Include="GridDropTarget.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\GridCtrlHeader</Filter>
     </ClInclude>
     <ClInclude Include="InPlaceEdit.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\GridCtrlHeader</Filter>
     </ClInclude>
     <ClInclude Include="MemDC.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\GridCtrlHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleTip.h">
+      <Filter>头文件\GridCtrlHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件\MyHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件\MyHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Sudoku.h">
+      <Filter>头文件\MyHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="SudokuDlg.h">
+      <Filter>头文件\MyHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件\MyHeader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sudoku.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SudokuDlg.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="GridCtrl.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="GridCell.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\GridCtrlSource</Filter>
     </ClCompile>
     <ClCompile Include="GridCellBase.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\GridCtrlSource</Filter>
     </ClCompile>
-    <ClCompile Include="TitleTip.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="GridCtrl.cpp">
+      <Filter>源文件\GridCtrlSource</Filter>
     </ClCompile>
     <ClCompile Include="GridDropTarget.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\GridCtrlSource</Filter>
     </ClCompile>
     <ClCompile Include="InPlaceEdit.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\GridCtrlSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleTip.cpp">
+      <Filter>源文件\GridCtrlSource</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件\MySource</Filter>
+    </ClCompile>
+    <ClCompile Include="Sudoku.cpp">
+      <Filter>源文件\MySource</Filter>
+    </ClCompile>
+    <ClCompile Include="SudokuDlg.cpp">
+      <Filter>源文件\MySource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

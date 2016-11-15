@@ -1,9 +1,9 @@
-﻿生成启动时间为 2016/11/15 17:30:00。
-     1>项目“F:\2016_03_13谭智勇\MFC 学习实验\Sudoku\Sudoku\Sudoku.vcxproj”在节点 2 上(clean 个目标)。
+﻿Build started 2016/11/15 21:58:31.
+     1>Project "E:\GITHUB\Sudoku\Sudoku\Sudoku.vcxproj" on node 2 (clean target(s)).
      1>_PrepareForClean:
-         正在删除文件“Debug\Sudoku.lastbuildstate”。
-     1>已完成生成项目“F:\2016_03_13谭智勇\MFC 学习实验\Sudoku\Sudoku\Sudoku.vcxproj”(clean 个目标)的操作。
+         Deleting file "Debug\Sudoku.lastbuildstate".
+     1>Done Building Project "E:\GITHUB\Sudoku\Sudoku\Sudoku.vcxproj" (clean target(s)).
 
-生成成功。
+Build succeeded.
 
-已用时间 00:00:00.01
+Time Elapsed 00:00:00.09
