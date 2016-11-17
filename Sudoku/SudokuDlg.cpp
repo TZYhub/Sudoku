@@ -64,6 +64,9 @@ BEGIN_MESSAGE_MAP(CSudokuDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_NOTIFY(NM_DBLCLK, IDC_GRID, &CSudokuDlg::OnDBClick)
+	ON_NOTIFY(GVN_BEGINLABELEDIT, IDC_GRID, OnGridStartEdit)
+	ON_NOTIFY(GVN_ENDLABELEDIT, IDC_GRID, OnGridEndEdit)
 END_MESSAGE_MAP()
 
 
@@ -99,7 +102,8 @@ BOOL CSudokuDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
-	GridCtrlInit();
+	Init();
+	
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -152,12 +156,19 @@ HCURSOR CSudokuDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+void CSudokuDlg::Init()
+{
+	GridCtrlInit();//表格初始化
+	VectorInit();
+	
+}
+
+//表格初始化，包括颜色，网格大小，等
 void CSudokuDlg::GridCtrlInit()
 {
 	m_pGrid.SetEditable(true);
-	//m_pGrid.SetTextBkColor(RGB(0xFF, 0xFF, 0x00));//黄色背景
-	m_pGrid.SetRowCount(9); //初始为9行
-	m_pGrid.SetColumnCount(9); //初始化为9列
+	m_pGrid.SetRowCount(9);			//初始为9行
+	m_pGrid.SetColumnCount(9);		//初始化为9列
 
 	for (int row=0; row < mc_lineAndColumn; row++)
 	{
@@ -167,75 +178,125 @@ void CSudokuDlg::GridCtrlInit()
 			Item.row = row;
 			Item.col = column;
 			Item.mask = GVIF_BKCLR;
+			Item.crFgClr = BLACK;
+
 			if ((row < 3) && (column > 2 && column < 6))
 			{
-				Item.crBkClr = RGB(0x11,0xff,0x11);
+				Item.crBkClr = MGREEN;
 			}
 			else if ((3 == row || 4 == row || 5 == row) && (column < 3 || column > 5))
 			{
-				Item.crBkClr = RGB(0x11,0xff,0x11);
+				Item.crBkClr = MGREEN;
 			}
 			else if ( (row > 5) && ( column > 2 && column < 6))
 			{
-				Item.crBkClr = RGB(0x11,0xff,0x11);
+				Item.crBkClr = MGREEN;
 			}
 			else
 			{
-				Item.crBkClr = RGB(0xff,0xff,0xff);
+				Item.crBkClr = WHITE;
 			}
 			
-			
-			 
 			m_pGrid.SetRowHeight(row,25);
 			m_pGrid.SetColumnWidth(column,25);
 			m_pGrid.SetItem(&Item);
-			
+			m_pGrid.SetGridLineColor(BLACK);
 		}
 	}
+}
 
 
+void CSudokuDlg::VectorInit()
+{
+	vector<int> vt;
+	for (int index = 0; index < mc_lineAndColumn; index++)
+	{
+		for (int row = 0; row < mc_lineAndColumn; row++)
+		{
+			vt.clear();
+			for (int column = 0; column < mc_lineAndColumn; column++)
+			{
+				vt.push_back(0);
+			}
+			m_vtSudoku.push_back(vt);
+		}
+	}
+}
+
+void CSudokuDlg::SetCellColor(int row, int column, COLORREF color)
+{
+	GV_ITEM item;
+	item.row = row;
+	item.col = column;
+	item.mask = GVIF_BKCLR;
+	item.crBkClr = color;
+	m_pGrid.SetItem(&item);
+}
 
 
+//判断填入的数字是否符合规则
+bool CSudokuDlg::IsFillNumberComformRules(int row, int column, int iValue)
+{
+	//行
+	for (int col = 0; col < mc_lineAndColumn; col++)
+	{
+		if (col != column && m_vtSudoku.at(row).at(col) == iValue)
+		{
+			//改变这两个地方的颜色
+			return false;
+		}
+	}
+	//列
+	for (int iRow = 0; iRow < mc_lineAndColumn; iRow++)
+	{
+		if (iRow != row && m_vtSudoku.at(iRow).at(column) == iValue)
+		{
+			//改变这两个地方的颜色
+			return false;
+		}
+	}
+	//格子
+	int iRowMin = row/3*3;
+	int iRowMax = row/3*3+3;
+	int iColMin = column/3*3;
+	int iColMax = column/3*3+3;
+	for (int iRow = iRowMin; iRow < iRowMax; iRow++)
+	{
+		for (int iCol = iColMin; iCol < iColMax; iCol++)
+		{
+			if ( (iRow != row || iCol != column) && m_vtSudoku.at(iRow).at(iCol) == iValue)
+			{
+				//改变这两个地方的颜色
+				return false;
+			}
+		}
+	}
+	return true;
+}
 
+void CSudokuDlg::OnDBClick(NMHDR* pNMHDR, LRESULT* pResult)
+{
+	MessageBox(_T("hahaha"));
+}
 
+void CSudokuDlg::OnGridStartEdit(NMHDR *pNotifyStruct, LRESULT* pResult)
+{
+	NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
+	
+	*pResult = 1;
+	
+}
 
-
-
-	//for (int row = 0; row < m_pGrid.GetRowCount(); row++)
-	//	for (int col = 0; col < m_pGrid.GetColumnCount(); col++)
-	//	{ 
-	//		//设置表格显示属性
-	//		GV_ITEM Item; 
-	//		Item.mask = GVIF_TEXT|GVIF_FORMAT;
-	//		Item.row = row;
-	//		Item.col = col;
-	//		Item.crBkClr=(RGB(0xFF, 0xFF, 0x00));
-	//		m_pGrid.SetItem(&Item);
-	//		m_pGrid.SetRowHeight(row,25); //设置各行高          
-	//		m_pGrid.SetColumnWidth(col,25); //设置各列宽
-	//		if(row==0&&col==0) //第(0，0)格
-	//		{
-	//			Item.nFormat = DT_CENTER|DT_WORDBREAK;
-	//			Item.strText.Format(_T(""),col);
-	//		}
-	//		else if (row < 1) //设置0行表头显示
-	//		{        
-	//			Item.nFormat = DT_CENTER|DT_WORDBREAK;
-	//			Item.strText.Format(_T(""));
-	//		}
-	//		else if (col < 1) //设置0列表头显示
-	//		{
-	//			if(row< m_pGrid.GetRowCount())
-	//			{
-	//				Item.nFormat = DT_CENTER|DT_VCENTER|DT_SINGLELINE|DT_END_ELLIPSIS;
-	//				Item.strText.Format(_T(""));
-	//			}
-	//		}
-	//		else
-	//		{
-	//			Item.nFormat = DT_CENTER|DT_VCENTER|DT_SINGLELINE|DT_END_ELLIPSIS;
-	//			Item.strText.Format(_T(""),2);
-	//		}
-	//		m_pGrid.SetItem(&Item); 
-	//	}
+void CSudokuDlg::OnGridEndEdit(NMHDR *pNotifyStruct, LRESULT* pResult)
+{
+	NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
+	m_fillValue = 1;
+	bool ret = IsFillNumberComformRules(pItem->iRow, pItem->iColumn, m_fillValue);
+	//如果是符合规则的，则填充至二维数组中
+	if (ret)
+	{
+		m_vtSudoku.at(pItem->iRow).at(pItem->iColumn) = m_fillValue;
+		//如果填充个数达到了81个，则提示完成
+	}
+	*pResult = ret ? 1 : -1;
 }

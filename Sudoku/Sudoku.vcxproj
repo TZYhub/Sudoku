@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CellRange.h" />
+    <ClInclude Include="ChoiceValueDlg.h" />
     <ClInclude Include="GridCell.h" />
     <ClInclude Include="GridCellBase.h" />
     <ClInclude Include="GridCtrl.h" />
@@ -115,6 +116,7 @@
     <ClInclude Include="TitleTip.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ChoiceValueDlg.cpp" />
     <ClCompile Include="GridCell.cpp" />
     <ClCompile Include="GridCellBase.cpp" />
     <ClCompile Include="GridCtrl.cpp" />

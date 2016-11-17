@@ -75,6 +75,9 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件\MyHeader</Filter>
     </ClInclude>
+    <ClInclude Include="ChoiceValueDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GridCell.cpp">
@@ -103,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="SudokuDlg.cpp">
       <Filter>源文件\MySource</Filter>
+    </ClCompile>
+    <ClCompile Include="ChoiceValueDlg.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

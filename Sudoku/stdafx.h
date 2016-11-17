@@ -39,7 +39,9 @@
 
 
 #include "GridCtrl.h"
+#include <vector>
 
+using namespace std;
 
 
 
