@@ -905,6 +905,7 @@ void CGridCtrl::OnTimer(UINT nIDEvent)
 // move about with keyboard
 void CGridCtrl::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
+	return;// add by TZY 2016-11-18 (can delete)
     if (!IsValid(m_idCurrentCell))
     {
         CWnd::OnKeyDown(nChar, nRepCnt, nFlags);
@@ -1287,6 +1288,7 @@ void CGridCtrl::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 void CGridCtrl::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
+	return;// add by TZY 2016-11-18 (can delete)
     CWnd::OnKeyUp(nChar, nRepCnt, nFlags);
 }
 
@@ -1302,6 +1304,7 @@ void CGridCtrl::OnSysKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 // Instant editing of cells when keys are pressed
 void CGridCtrl::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
+	return;// add by TZY 2016-11-18 (can delete)
     // EFW - BUG FIX
     if (!IsCTRLpressed() && m_MouseMode == MOUSE_NOTHING && nChar != VK_ESCAPE)
     {
@@ -5713,6 +5716,7 @@ BOOL CGridCtrl::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 
 void CGridCtrl::OnMouseMove(UINT /*nFlags*/, CPoint point)
 {
+	return;//add by TZY 2016-11-18 To remove the mouse drag event(can delete)
     CRect rect;
     GetClientRect(rect);
 
@@ -5902,7 +5906,7 @@ CPoint CGridCtrl::GetPointClicked(int nRow, int nCol, const CPoint& point)
 void CGridCtrl::OnLButtonDblClk(UINT nFlags, CPoint point)
 {
     TRACE0("CGridCtrl::OnLButtonDblClk\n");
-
+	return;//add by TZY 2016-11-18
     CCellID cell = GetCellFromPt(point);
     if( !IsValid( cell) )
     {
@@ -6076,6 +6080,7 @@ void CGridCtrl::OnLButtonDown(UINT nFlags, CPoint point)
     // (If the user moves the mouse, then dragging occurs)
     else if (IsCellSelected(m_LeftClickDownCell))
     {
+		
         SetFocusCell(m_LeftClickDownCell.row, m_LeftClickDownCell.col);
 
         // If control is pressed then unselect the cell or row (depending on the list mode)

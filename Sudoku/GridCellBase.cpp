@@ -490,7 +490,6 @@ BOOL CGridCellBase::GetTextRect( LPRECT pRect)  // i/o:  i=dims of cell rect; o=
             pRect->left += nImageWidth + GetMargin();
         }
     }
-
     return TRUE;
 }
 
