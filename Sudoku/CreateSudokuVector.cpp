@@ -35,7 +35,7 @@ vector<vector<int>> CreateSudoku::CreateSudokuVector()
 
 void CreateSudoku::CreateFinallSudoku()
 {
-
+	//1.随机选取11个格子，随机填入1-9的数字，利用破解数独函数，得出终盘
 }
 
 void CreateSudoku::DigHole()
