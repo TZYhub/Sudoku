@@ -78,6 +78,12 @@
     <ClInclude Include="ChoiceValueDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CreateSudokuVector.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DancingLinkX.h">
+      <Filter>头文件\MyHeader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GridCell.cpp">
@@ -109,6 +115,12 @@
     </ClCompile>
     <ClCompile Include="ChoiceValueDlg.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateSudokuVector.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DancingLinkX.cpp">
+      <Filter>源文件\MySource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

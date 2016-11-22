@@ -45,6 +45,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <TargetName>数独游戏</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -102,6 +103,8 @@
   <ItemGroup>
     <ClInclude Include="CellRange.h" />
     <ClInclude Include="ChoiceValueDlg.h" />
+    <ClInclude Include="CreateSudokuVector.h" />
+    <ClInclude Include="DancingLinkX.h" />
     <ClInclude Include="GridCell.h" />
     <ClInclude Include="GridCellBase.h" />
     <ClInclude Include="GridCtrl.h" />
@@ -117,6 +120,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ChoiceValueDlg.cpp" />
+    <ClCompile Include="CreateSudokuVector.cpp" />
+    <ClCompile Include="DancingLinkX.cpp" />
     <ClCompile Include="GridCell.cpp" />
     <ClCompile Include="GridCellBase.cpp" />
     <ClCompile Include="GridCtrl.cpp" />

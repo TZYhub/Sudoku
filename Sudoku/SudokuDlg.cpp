@@ -253,7 +253,8 @@ void CSudokuDlg::ChoiceGridCtrlInit()
 
 void CSudokuDlg::VectorInit()
 {
-	vector<PointInfo> vt;
+	m_vtSudoku = m_createSudoku.CreateSudokuVector(LEVEL(1));
+	/*vector<PointInfo> vt;
 	PointInfo point;
 	for (int row = 0; row < mc_lineAndColumn; row++)
 	{
@@ -274,7 +275,7 @@ void CSudokuDlg::VectorInit()
 	m_vtSudoku.at(5).at(1).vtValue = 4;m_vtSudoku.at(5).at(4).vtValue = 8;m_vtSudoku.at(5).at(5).vtValue = 3;m_vtSudoku.at(5).at(7).vtValue = 2;
 	m_vtSudoku.at(6).at(3).vtValue = 5;m_vtSudoku.at(6).at(7).vtValue = 9;m_vtSudoku.at(6).at(8).vtValue = 4;
 	m_vtSudoku.at(7).at(2).vtValue = 3;m_vtSudoku.at(7).at(4).vtValue = 9;m_vtSudoku.at(7).at(5).vtValue = 4;
-	m_vtSudoku.at(8).at(0).vtValue = 9;m_vtSudoku.at(8).at(3).vtValue = 8;m_vtSudoku.at(8).at(8).vtValue = 7;
+	m_vtSudoku.at(8).at(0).vtValue = 9;m_vtSudoku.at(8).at(3).vtValue = 8;m_vtSudoku.at(8).at(8).vtValue = 7;*/
 }
 
 

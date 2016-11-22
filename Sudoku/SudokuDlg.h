@@ -4,6 +4,7 @@
 
 #pragma once
 #include "GridCtrl.h"
+#include "CreateSudokuVector.h"
 
 enum COLOR
 {
@@ -19,11 +20,11 @@ enum COLOR
 	BLUE = RGB(0x00, 0x00, 0xFF)
 };
 
-struct PointInfo
-{
-	int vtValue;			//该点的数值
-	bool bInputFlag;		//是输入 为true 
-};
+//struct PointInfo
+//{
+//	int vtValue;			//该点的数值
+//	bool bInputFlag;		//是输入 为true 
+//};
 
 
 // CSudokuDlg 对话框
@@ -92,4 +93,6 @@ public:
 	
 	ULONG m_timeSecond;//记录的秒数
 	bool m_bColorChange;//改变颜色标识
+
+	CreateSudoku m_createSudoku;
 };
